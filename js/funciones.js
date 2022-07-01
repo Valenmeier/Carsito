@@ -55,49 +55,6 @@ const redireccionDePágina= (modelos) => {
 
 
 
-function agregarAlCarrito(prod) {
-
-    const carritoDom=document.querySelector(".carrito")
-    carritoDom.innerHTML=""
-    nuevoCarrito.push(prod)
-    for (const prod of nuevoCarrito) {  
-    const agregarDiv= document.createElement(`div`)
-              agregarDiv.className="carta-autos"
-              agregarDiv.id=`${prod.id}`
-              agregarDiv.innerHTML=
-              `<div class="figura-carta">
-              <img src="${prod.imagen}">
-           </div>
-           <div class="modelo-auto">
-               <h4>${prod.modelo}</h4>
-           </div>
-           <div class="marca-auto">
-               <div class="nombreDeMarca">
-                   <h4>Marca: ${prod.marca}</h4>
-               </div>
-               <div class="imagenDeMarca">
-                   ${prod.logo}
-               </div>
-           </div>
-           <div class="id-auto">
-               <h4>ID=${prod.id}</h4>
-           </div>
-           <div class="informacion-auto">
-               <p>
-               ${prod.informacion}
-               </p>
-           </div>
-           <div class="precio-auto">
-               <h4>PRECIO:$${prod.precio}</h4>
-           </div>`
-           agregarDiv.addEventListener(`dblclick`,()=>{
-            debugger
-            removerDelCarrito(prod.id)
-           })
-           carritoDom.append(agregarDiv)
-    }
-    
-}
 
 
 

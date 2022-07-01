@@ -1,5 +1,4 @@
 let llamarCarrito= ()=> {
-    debugger
     if ((JSON.parse(localStorage.getItem(`carrito`)))=="") {
         mainCarrito.innerHTML = `
         <h4 class="titulo-carrito">Carrito:</h4>
@@ -15,6 +14,7 @@ let llamarCarrito= ()=> {
         `;
     }
 }
+
 let mostrarEnCarrito = () => {
     agarrarModelos=JSON.parse(localStorage.getItem(`carrito`))
     mainCarrito.innerHTML=""
@@ -22,11 +22,10 @@ let mostrarEnCarrito = () => {
     preciosEnCarrito=[]
     precioFinal=0
     for(let mostrarModelo of agarrarModelos) {
-        //poner id en tabla para que se elimine todo
        mainCarrito.innerHTML+= `
-       <div class="carrito-tabla" id="${mostrarModelo.id}"> 
+       <div class="carrito-tabla"> 
             <img class="carrito-imagen" src="${mostrarModelo.imagen}" alt="autoEnCarrito" title="autoEnCarrito">
-            <div class="eliminar-de-carro" id="eliminar" title="Eliminar del carrito">X</div>
+            <div class="eliminar-de-carro" id="${mostrarModelo.id}" title="Eliminar del carrito">X</div>
             <div class="titulo-del-auto">
                 <h4>${mostrarModelo.modelo}</h4>
             </div>
@@ -35,7 +34,7 @@ let mostrarEnCarrito = () => {
                     <h4>MARCA=${mostrarModelo.marca}</h4>
                 </div>
                 <div class="id-auto-carrito" >
-                    <h4>ID= ${mostrarModelo.id}</h4>
+                    <h4>ID=${mostrarModelo.id}</h4>
                 </div>
             </div>
             <div class="precio-total">
@@ -43,15 +42,16 @@ let mostrarEnCarrito = () => {
             </div>
         </div>
      `
-     debugger
-     cruzParaSacar= document.querySelector(`#eliminar`)
-
-     cruzParaSacar.addEventListener(`click`,()=> {
-        removerDelCarrito(mostrarModelo.id)
-     })
         preciosEnCarrito.push(mostrarModelo.precio)
-    }
+    }   
+
 }
+document.addEventListener("click", (e)=>{
+    if(e.target.classList.contains("eliminar-de-carro")){
+        let id = parseInt(e.target.id)
+        removerDelCarrito(id)
+    }
+} )
 
 let sumarcarrito=()=> {
 
