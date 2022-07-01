@@ -26,10 +26,11 @@ let mostrarEnCarrito = () => {
     preciosEnCarrito=[]
     precioFinal=0
     for(let mostrarModelo of agarrarModelos) {
-        let {id,imagen,marca,modelo,precio}= mostrarModelo
+        debugger
+        let {id,imagen:img,marca,modelo,precio}= mostrarModelo
        mainCarrito.innerHTML+= `
        <div class="carrito-tabla"> 
-            <img class="carrito-imagen" src="${imagen}" alt="autoEnCarrito" title="autoEnCarrito">
+            <img class="carrito-imagen" src="${img}" alt="autoEnCarrito" title="autoEnCarrito">
             <div class="eliminar-de-carro" id="${id}" title="Eliminar del carrito">X</div>
             <div class="titulo-del-auto">
                 <h4>${modelo}</h4>
