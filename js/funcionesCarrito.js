@@ -1,18 +1,22 @@
+
 let llamarCarrito= ()=> {
-    if ((JSON.parse(localStorage.getItem(`carrito`)))=="") {
-        mainCarrito.innerHTML = `
-        <h4 class="titulo-carrito">Carrito:</h4>
-        <h3>Su carrito se encuentra vacio</h3>
-        `;
-    }else if (JSON.parse(localStorage.getItem(`carrito`))){
-        mostrarEnCarrito()
-        sumarcarrito()
-    }else {
-        mainCarrito.innerHTML = `
-        <h4 class="titulo-carrito">Carrito:</h4>
-        <h3>Su carrito se encuentra vacio</h3>
-        `;
-    }
+    debugger
+    let llamarCarro= JSON.parse(localStorage.getItem(`carrito`));
+    (llamarCarro.length<=0)? agregarAlMain() :
+    (llamarCarro.length>0)? mostrarYSumarCarro() :
+    agregarAlMain();
+}
+
+let agregarAlMain = () => {
+    mainCarrito.innerHTML = `
+    <h4 class="titulo-carrito">Carrito:</h4>
+    <h3>Su carrito se encuentra vacio</h3>
+    `;
+}
+
+let mostrarYSumarCarro= ()=> {
+    mostrarEnCarrito()
+    sumarcarrito()
 }
 
 let mostrarEnCarrito = () => {
@@ -22,27 +26,28 @@ let mostrarEnCarrito = () => {
     preciosEnCarrito=[]
     precioFinal=0
     for(let mostrarModelo of agarrarModelos) {
+        let {id,imagen,marca,modelo,precio}= mostrarModelo
        mainCarrito.innerHTML+= `
        <div class="carrito-tabla"> 
-            <img class="carrito-imagen" src="${mostrarModelo.imagen}" alt="autoEnCarrito" title="autoEnCarrito">
-            <div class="eliminar-de-carro" id="${mostrarModelo.id}" title="Eliminar del carrito">X</div>
+            <img class="carrito-imagen" src="${imagen}" alt="autoEnCarrito" title="autoEnCarrito">
+            <div class="eliminar-de-carro" id="${id}" title="Eliminar del carrito">X</div>
             <div class="titulo-del-auto">
-                <h4>${mostrarModelo.modelo}</h4>
+                <h4>${modelo}</h4>
             </div>
             <div class="modeloYID">
                 <div class="marcaAuto">
-                    <h4>MARCA=${mostrarModelo.marca}</h4>
+                    <h4>MARCA=${marca}</h4>
                 </div>
                 <div class="id-auto-carrito" >
-                    <h4>ID=${mostrarModelo.id}</h4>
+                    <h4>ID=${id}</h4>
                 </div>
             </div>
             <div class="precio-total">
-                <h4>$${(mostrarModelo.precio)} </h4>
+                <h4>$${(precio)} </h4>
             </div>
         </div>
      `
-        preciosEnCarrito.push(mostrarModelo.precio)
+        preciosEnCarrito.push(precio)
     }   
 
 }

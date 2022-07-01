@@ -47,10 +47,12 @@ let quitarModal = ()=> {
 let cuidadoDeMenores = () => {
     debugger
     let edad = parseInt(localStorage.getItem(`edad`))
-    if (edad>=18) {
+    let mayorDeEdad = () => {
         saludo.innerText=`¡HOLA ${localStorage.getItem(`nombre`).toUpperCase()}!, ¿COMO TE ENCUENTRAS HOY?`
-    } else {
+    }
+    let menorDeEdad = () => {
         saludo.innerText=`¡HOLA ${localStorage.getItem(`nombre`).toUpperCase()}!, ¿COMO TE ENCUENTRAS HOY?. 
         Recuerda tener supervición de tus padres`
     }
+     (edad>=18)? mayorDeEdad() : menorDeEdad();
 }
