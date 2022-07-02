@@ -49,7 +49,7 @@ botonVolverAautos.addEventListener(`click`,()=> {
 const agregarAlCarrito=document.querySelector(`.informacion-añadir-carrito`)
 
 agregarAlCarrito.addEventListener(`click`, ()=> {
-    alert(`El producto se ha agregado exitosamente al carrito`)
+    añadirProductoExitoso(`Su ${recuperarModelo.modelo} se ha agregado exitosamente al carrito`.toUpperCase())
 
     guardarEnCarrito=(JSON.parse(localStorage.getItem(`carrito`))) || [];
 
@@ -57,5 +57,16 @@ agregarAlCarrito.addEventListener(`click`, ()=> {
     
     localStorage.setItem(`carrito`,JSON.stringify(guardarEnCarrito))
 })
+
+let añadirProductoExitoso= (texto)=> {
+    Swal.fire({
+        title: 'Exito',
+        text: texto,
+        imageUrl: `${recuperarModelo.imagen}`,
+        imageWidth: 400,
+        imageHeight: 200,
+        imageAlt: 'Custom image',
+      })
+}
 
 

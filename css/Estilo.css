@@ -206,7 +206,7 @@ html::-webkit-scrollbar-thumb {
     text-align: center;
 }
 
-button {
+.boton-inicio-css {
     cursor: pointer;
  position: absolute;
  padding: 1em 1.8em;
@@ -224,7 +224,7 @@ button {
  bottom: 20vh;
 }
 
-button:hover {
+.boton-inicio-css:hover {
  box-shadow: 0 0 10px #ae00ff, 0 0 25px #001eff, 0 0 50px #ae00ff;
  transition-delay: 0.6s;
 }
@@ -236,11 +236,11 @@ button:hover {
     color: #ae00ff;
 }
 
-button span {
+.boton-inicio-css span {
  position: absolute;
 }
 
-button span:nth-child(1) {
+.boton-inicio-css span:nth-child(1) {
  top: 0;
  left: -100%;
  width: 100%;
@@ -248,12 +248,12 @@ button span:nth-child(1) {
  background: linear-gradient(90deg, transparent, #ae00ff);
 }
 
-button:hover span:nth-child(1) {
+.boton-inicio-css:hover span:nth-child(1) {
  left: 100%;
  transition: 0.7s;
 }
 
-button span:nth-child(3) {
+.boton-inicio-css span:nth-child(3) {
  bottom: 0;
  right: -100%;
  width: 100%;
@@ -261,13 +261,13 @@ button span:nth-child(3) {
  background: linear-gradient(90deg, transparent, #001eff);
 }
 
-button:hover span:nth-child(3) {
+.boton-inicio-css:hover span:nth-child(3) {
  right: 100%;
  transition: 0.7s;
  transition-delay: 0.35s;
 }
 
-button span:nth-child(2) {
+.boton-inicio-css span:nth-child(2) {
  top: -100%;
  right: 0;
  width: 2px;
@@ -275,13 +275,13 @@ button span:nth-child(2) {
  background: linear-gradient(180deg, transparent, #ae00ff);
 }
 
-button:hover span:nth-child(2) {
+.boton-inicio-css:hover span:nth-child(2) {
  top: 100%;
  transition: 0.7s;
  transition-delay: 0.17s;
 }
 
-button span:nth-child(4) {
+.boton-inicio-css span:nth-child(4) {
  bottom: -100%;
  left: 0;
  width: 2px;
@@ -289,13 +289,13 @@ button span:nth-child(4) {
  background: linear-gradient(360deg, transparent, #001eff);
 }
 
-button:hover span:nth-child(4) {
+.boton-inicio-css:hover span:nth-child(4) {
  bottom: 100%;
  transition: 0.7s;
  transition-delay: 0.52s;
 }
 
-button:active {
+.boton-inicio-css:active {
  background: #ae00af;
  background: linear-gradient(to top right, #ae00af, #001eff);
  color: #bfbfbf;
@@ -303,7 +303,7 @@ button:active {
  transition: 0.1s;
 }
 
-button:active span:nth-child(1) 
+.boton-inicio-css:active span:nth-child(1) 
 span:nth-child(2) 
 span:nth-child(2) 
 span:nth-child(2) {
@@ -540,6 +540,29 @@ span:nth-child(2) {
     padding: 0;
     font-size: 1vw;
     color: #28d96c;
+}
+
+/*informacion auto modal*/
+.swal2-title {
+    padding: 0;
+    margin: 0;
+    color: #c3e1f7;
+}
+.swal2-styled.swal2-confirm {
+    background-color: #d928d9;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 1vw;
+    transition: all .2s;
+}
+.swal2-html-container {
+    margin: 2vw;
+    margin-top: 1.5vw;
+    color: #ffffff;
+}
+.swal2-modal {
+    background-color: #390e7e;
+    box-shadow:0 0 8px #ae00ff, 0 0 8px #001eff, 0 0 8px #ae00ff ;
 }
 /*carrito*/
 .carrito {
