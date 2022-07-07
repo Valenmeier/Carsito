@@ -1,12 +1,10 @@
 let controlDeusuario = () => {
-    debugger
     if ((localStorage.getItem(`nombre`) != null) & (localStorage.getItem(`edad`)!= null)) {
         quitarModalCompleto()
     }
 }
 
 let controlInputsInicio = () => {
-    debugger
     if (inputNombre.value && inputEdad.value){
     moduloInicio.classList.toggle(`cerrarContenedorModulo`)
     almacenamientoDeInputs()
@@ -45,7 +43,6 @@ let quitarModal = ()=> {
 }
 
 let cuidadoDeMenores = () => {
-    debugger
     let edad = parseInt(localStorage.getItem(`edad`))
     let mayorDeEdad = () => {
         saludo.innerText=`¡HOLA ${localStorage.getItem(`nombre`).toUpperCase()}!, ¿COMO TE ENCUENTRAS HOY?`

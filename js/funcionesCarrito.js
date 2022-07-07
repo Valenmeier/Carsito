@@ -1,7 +1,6 @@
 
 let llamarCarrito= ()=> {
-    debugger
-    let llamarCarro= JSON.parse(localStorage.getItem(`carrito`));
+    let llamarCarro= JSON.parse(localStorage.getItem(`carrito`))|| [];
     (llamarCarro.length<=0)? agregarAlMain() :
     (llamarCarro.length>0)? mostrarYSumarCarro() :
     agregarAlMain();
@@ -23,10 +22,11 @@ let mostrarEnCarrito = () => {
     agarrarModelos=JSON.parse(localStorage.getItem(`carrito`))
     mainCarrito.innerHTML=""
     mainCarrito.innerHTML=`<h4 class="titulo-carrito">Carrito:</h4>`
+
     preciosEnCarrito=[]
     precioFinal=0
+    
     for(let mostrarModelo of agarrarModelos) {
-        debugger
         let {id,imagen:img,marca,modelo,precio}= mostrarModelo
        mainCarrito.innerHTML+= `
        <div class="carrito-tabla"> 
