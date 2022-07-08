@@ -27,6 +27,7 @@ let mostrarEnCarrito = () => {
     precioFinal=0
     
     for(let mostrarModelo of agarrarModelos) {
+        debugger
         let {id,imagen:img,marca,modelo,precio}= mostrarModelo
        mainCarrito.innerHTML+= `
        <div class="carrito-tabla"> 
@@ -44,11 +45,11 @@ let mostrarEnCarrito = () => {
                 </div>
             </div>
             <div class="precio-total">
-                <h4>$${(precio)} </h4>
+                <h4>$${parseInt(precio)} </h4>
             </div>
         </div>
      `
-        preciosEnCarrito.push(precio)
+        preciosEnCarrito.push(parseInt(precio))
     }   
 
 }

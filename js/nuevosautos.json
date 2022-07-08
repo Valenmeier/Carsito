@@ -1,0 +1,62 @@
+[
+    {
+        "imagen":"https://diarioautomotor.com.ar/wp-content/uploads/2021/08/Lamborghini-Countach-LPI-800-4-1.jpg",
+        "id":"685",
+        "marca":"LAMBORGHINI",
+        "modelo":"COUNTACH LPI800-4",
+        "informacion":"Proporciones perfectas, estilo futurista. El concepto disruptivo que hay detrás de la audaz silueta que ha inspirado a generaciones de superdeportivos reaparece en esta versión conmemorativa de tan solo 112 unidades. Las líneas puras, la posición longitudinal posterior del V12 y las icónicas puertas de tijera, cuyo nuevo diseño reinterpreta sus formas con un corte aún más limpio, lo hacen inmediatamente reconocible, al tiempo que lo proyectan al futuro. Para preservar su ADN único, se han creado exclusivas configuraciones, como los colores sólidos heritage Giallo Countach e Impact White o los colores contemporary, principalmente metálicos, como el Viola Pasifae y el Blu Uranus.",
+        "precio":"700",
+        "logo":"<img src=../multimedia/imagenes/lamborghini.jpg >",
+        "stock":"6"
+    },
+    {
+        "imagen":"https://i0.wp.com/cinemedios.com/wp-content/uploads/2018/08/lamborghini-terzo-millennio.jpg?fit=1200%2C675&ssl=1",
+        "id":"689",
+        "marca":"LAMBORGHINI",
+        "modelo":"TERZO MILLENNIO",
+        "informacion":"Automobili Lamborghini mira al futuro con un enfoque visionario, llevando al extremo los valores que están en su ADN, y fija las exigencias del tercer milenio en materia de ahorro energético y materiales innovadores, para marcar su rumbo dentro del segmento de los superdeportivos eléctricos y garantizar una experiencia de conducción absoluta.",
+        "precio":"780",
+        "logo":"<img src=../multimedia/imagenes/lamborghini.jpg >",
+        "stock":"4"
+    },
+    {
+        "imagen":"https://img.remediosdigitales.com/9609a7/ferrari-monza-sp1-sp2-2019-007/1366_2000.jpg",
+        "id":"789",
+        "marca":"FERRARI",
+        "modelo":"FERRARI MONZA SP1",
+        "informacion":"Un modelo que parece esculpido por el viento quien diseña sus formas, imprimiendo la pureza de sus trazos estilísticos y una estética proyectada al futuro, siempre con un profundo respeto sin caer en la nostalgia hacia el pasado.",
+        "precio":"880",
+        "logo":"<img src=../multimedia/imagenes/Scuderia_Ferrari_(cropped).png>",
+        "stock":"3"
+    },
+    {
+        "imagen":"https://phantom-marca.unidadeditorial.es/63bc246a7153b890b16ab1388c42de9c/resize/1320/f/jpg/assets/multimedia/imagenes/2022/04/19/16503784046012.jpg",
+        "id":"554",
+        "marca":"FERRARI",
+        "modelo":"FERRARI 296 GTS",
+        "informacion":"El 296 GTS es el primer V6 turbo en un coche convertible de carretera del Cavallino Rampante y también el primer spider PHEV de Ferrari con tracción trasera. La potencia vive y respira en la parte posterior del coche, ya que la combinación del V6 turbo y la salida eléctrica inyecta 830 CV a las ruedas traseras y permite pasar de 0 a 100 km/h en 2,9 s, alcanzar 200 km/h en 7,6 s y llegar a una velocidad máxima de 330 km/h. Y en modo puramente eléctrico, el coche bordea los 135 km/h antes de que el V6 entre en acción.",
+        "precio":"630",
+        "logo":"<img src=../multimedia/imagenes/Scuderia_Ferrari_(cropped).png>",
+        "stock":"8"
+    },
+    {
+        "imagen":"https://acnews.blob.core.windows.net/imgnews/medium/NAZ_a568e2efeb6948cfa67ef55875666c7b.jpg",
+        "id":"584",
+        "marca":"MCLAREN",
+        "modelo":"MCLAREN F1",
+        "informacion":"El 296 GTS es el primer V6 turbo en un coche convertible de carretera del Cavallino Rampante y también el primer spider PHEV de Ferrari con tracción trasera. La potencia vive y respira en la parte posterior del coche, ya que la combinación del V6 turbo y la salida eléctrica inyecta 830 CV a las ruedas traseras y permite pasar de 0 a 100 km/h en 2,9 s, alcanzar 200 km/h en 7,6 s y llegar a una velocidad máxima de 330 km/h. Y en modo puramente eléctrico, el coche bordea los 135 km/h antes de que el V6 entre en acción.",
+        "precio":"1500",
+        "logo":"<img src=../multimedia/imagenes/mclaren.webp>",
+        "stock":"8"
+    },
+    {
+        "imagen":"https://cdn.motor1.com/images/mgl/e4E3A/s1/pagani-zonda-hp-barchetta.jpg",
+        "id":"994",
+        "marca":"PAGANI",
+        "modelo":"PAGANI ZONDA HP BRACHETTA",
+        "informacion":"La marca Pagani construyó tres unidades del llamado Zonda HP Barchetta. Oficialmente, el Pagani Zonda dejó de fabricarse en 2011 con los Zonda Tricolore. Sin embargo, las ediciones especiales y versiones únicas no han dejado de salir de la factoría de Horacio Pagani.",
+        "precio":"2000",
+        "logo":"<img src=../multimedia/imagenes/pagani.jpg>",
+        "stock":"2"
+    }
+]

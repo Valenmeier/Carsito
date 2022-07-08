@@ -1,5 +1,6 @@
 const mostrarModelos=[]
 
+agregarNuevosModelos()
 
 mostrarModelos.push(new modelos(`../multimedia/imagenes/c905c18a-9baf-49eb-909b-73dd247670f5.jpg`,`FERRARI 488 SPIDER`,`FERRARI`,`El Ferrari 488 es un automóvil superdeportivo de dos puertas biplaza, con motor central-trasero montado longitudinalmente y de tracción trasera, producido por el fabricante italiano Ferrari.<br>
 El primero en ser introducido fue el 488 GTB berlinetta, para reemplazar al anterior 458 Italia como su sucesor. Se lanzó el 3 de febrero de 2015, antes de su estreno mundial en el Salón del Automóvil de Ginebra en marzo de ese mismo año.`,autoId(),850,`<img src="../multimedia/imagenes/Scuderia_Ferrari_(cropped).png">`,autoStock()))
@@ -14,6 +15,6 @@ mostrarModelos.push(new modelos(`../multimedia/imagenes/16152842503708.jpg`,`BUG
 
 Su nombre es un homenaje al piloto de carreras francés Albert Divo, quien corrió para Bugatti en la década de 1920, venciendo dos veces en la carrera Targa Florio.3​`,autoId(),950,`<img src="../multimedia/imagenes/800px-Bugatti_Logo.png">`,autoStock()))
 
-mostrarEnDoom()
+
 
 const nuevoCarrito=[]

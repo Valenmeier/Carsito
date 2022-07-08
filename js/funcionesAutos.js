@@ -4,8 +4,20 @@ function autoId () {
 function autoStock () {
     return parseInt(Math.random()*10)
 }
-
-function mostrarEnDoom () {
+agregarNuevosModelos = () => {
+    const autosNuevos= `../js/nuevosautos.json`
+    fetch(autosNuevos)
+        .then((respuesta)=> respuesta.json())
+        .then((datos)=> {
+            for (nuevoAuto of datos) {
+                const {imagen:img, id, marca, modelo, informacion, precio, logo, stock} =nuevoAuto
+                mostrarModelos.push(new modelos(img,modelo,marca,informacion,id,precio,logo,stock))
+            }
+        })
+    .catch((error)=>console.log(`ocurrio un error`))
+    .finally(()=>mostrarEnDoom())
+}
+function mostrarEnDoom () {   
     let productosMuestra=document.querySelector(".productos-autos")
     for (const modelos of mostrarModelos){
         const agregarDiv= document.createElement(`div`)
@@ -34,7 +46,7 @@ function mostrarEnDoom () {
                </p>
            </div>
            <div class="precio-auto">
-               <h4>PRECIO:$${modelos.precio}</h4>
+               <h4>PRECIO:$${parseInt(modelos.precio)}</h4>
            </div>`
             agregarDiv.addEventListener(`click`,()=>{
             redireccionDePágina(modelos)
