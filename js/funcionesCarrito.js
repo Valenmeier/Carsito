@@ -28,7 +28,8 @@ let mostrarEnCarrito = () => {
     
     for(let mostrarModelo of agarrarModelos) {
         debugger
-        let {id,imagen:img,marca,modelo,precio}= mostrarModelo
+        let {id,imagen:img,marca,modelo,precio,cantidad}= mostrarModelo
+        let precioTotal=precio*cantidad
        mainCarrito.innerHTML+= `
        <div class="carrito-tabla"> 
             <img class="carrito-imagen" src="${img}" alt="autoEnCarrito" title="autoEnCarrito">
@@ -44,12 +45,20 @@ let mostrarEnCarrito = () => {
                     <h4>ID=${id}</h4>
                 </div>
             </div>
+            <div class="cantidadYPrecio">
+                <div class="marcaAuto">
+                    <h4>Cantidad solicitada=${cantidad}</h4>
+                </div>
+                <div class="id-auto-carrito" >
+                    <h4>Precio unitario= $${precio}</h4>
+                </div>
+            </div>
             <div class="precio-total">
-                <h4>$${parseInt(precio)} </h4>
+                <h4>$${parseInt(precioTotal)} </h4>
             </div>
         </div>
      `
-        preciosEnCarrito.push(parseInt(precio))
+        preciosEnCarrito.push(parseInt(precioTotal))
     }   
 
 }
@@ -68,8 +77,65 @@ for (let i = 0; i < preciosEnCarrito.length; i++) {
 }
 mainCarrito.innerHTML+= `
 <div class="precio-total centrar-precio-final">
-    <h4>$${(precioFinal)} </h4>
+    <h4>$${(precioFinal)}</h4>
+</div>
+<div class="comprarYVaciarCarro">
+    <div class="botonComprarTodoCarrito">
+        <button type="submit" class="finalizarCarrito">Comprar todo</button>
+    </div>
+    <div class="botonCancelarTodoCarrito">
+        <button type="submit" class="vaciarCarrito">Vaciar Carrito</button>
+    </div>
 </div>`
+let vaciarCarrito=document.querySelector(`.vaciarCarrito`)
+vaciarCarrito.addEventListener(`click`,()=> {
+    let carritoVacio=[]
+    localStorage.setItem(`carrito`,JSON.stringify(carritoVacio))
+    llamarCarrito()
+})
+let finalizarCompra=document.querySelector(`.finalizarCarrito`)
+finalizarCompra.addEventListener(`click`, ()=> {
+    Swal.fire({
+        title: 'CONFIRMAR COMPRA',
+        text: "Desea pagar $"+ `${precioFinal}` + " para finalizar la compra?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, adelante!',
+        cancelButtonText: 'No, cancelar'
+      }).then((result) => {
+        if (result.isConfirmed) {
+            debugger
+            let historialDeCompra=[]
+            for(producto of agarrarModelos) {
+                let cantidadAEliminar=(producto.stock)-(producto.cantidad)
+                producto.stock=cantidadAEliminar
+                historialDeCompra.push(producto)
+              }
+              let traerStock=JSON.parse(localStorage.getItem(`stock`))
+              traerStock=JSON.stringify(historialDeCompra)
+              localStorage.setItem(`stock`,traerStock)
+              localStorage.setItem(`historialDeCompra`,traerStock)
+              let carritoVacio=[]
+              localStorage.setItem(`carrito`,JSON.stringify(carritoVacio))
+              llamarCarrito()
+              
+          Swal.fire(
+            'Felicidades!',
+            'Disfrute su inversión!',
+            'success'
+          )
+          
+        }else {
+            Swal.fire(
+                'Cancelado',
+                'Se ha cancelado exitosamente la compra',
+                'success'
+              )
+        }
+      })
+})
 } 
 
 function removerDelCarrito (producto) {

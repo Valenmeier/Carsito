@@ -543,26 +543,38 @@ span:nth-child(2) {
 }
 
 /*informacion auto modal*/
-.swal2-title {
+.tituloModal {
     padding: 0;
     margin: 0;
     color: #c3e1f7;
+    font-size: 1.8vw;
 }
-.swal2-styled.swal2-confirm {
-    background-color: #d928d9;
+.OkeyBoton {
+    background-color: #d928d9!important;
     position: absolute;
     bottom: 0;
     margin-bottom: 1vw;
     transition: all .2s;
+    width: 4vw;
+    display: flex!important;
+    justify-content: center;
+    align-items: center;
+    font-size: 1vw!important;
 }
-.swal2-html-container {
+.añadirACARRO {
     margin: 2vw;
     margin-top: 1.5vw;
     color: #ffffff;
-}
-.swal2-modal {
+    height: 25vw;
     background-color: #390e7e;
     box-shadow:0 0 8px #ae00ff, 0 0 8px #001eff, 0 0 8px #ae00ff ;
+}
+.imagenConfirmarModal {
+    width: 15vw!important;
+    height: auto!important;
+}
+.editarTExto {
+    font-size: 1vw;
 }
 /*carrito*/
 .carrito {
@@ -772,6 +784,7 @@ text-align: center;
     color:#c3e1f7;
     border: double .5vw #61185b;
 }
+
 /*main carrito*/
 .main-carrito {
     min-height: 100vh;
@@ -785,16 +798,16 @@ text-align: center;
     padding-bottom:3vw ;
     font-size: 5vw;
     text-align: center;
-    background-color: #a4508b;
-    background-image: linear-gradient(326deg, #a4508b 0%, #5f0a87 74%);
+    background-color: #1fd1f9;
+    background-image: linear-gradient(315deg, #1fd1f9 0%, #b621fe 74%);
 }
 .main-carrito h3 {
-    color: rgb(218, 150, 218);
+    color: rgb(255, 201, 119);
     margin-top: 9vw;
 }
 /*tabla del carrito*/
 .titulo-carrito {
-    color: rgb(209, 209, 209);
+    color: rgb(255, 255, 255);
 }
 .carrito-tabla {
     width: 92vw;
@@ -876,6 +889,18 @@ text-align: center;
     flex-direction: row;
     font-size: 1.5vw;
 }
+.cantidadYPrecio {
+    margin-left: 1.5vw;
+    display: flex;
+    flex-direction: column;
+    grid-column: 2 / 3;
+    grid-row: 4/5;
+    font-size: 1.6vw;
+    color: #4a178d;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0;
+}
 .stock-en-carrito {
     margin-left: 1.5vw;
     display: flex;
@@ -914,4 +939,57 @@ text-align: center;
 }
 .centrar-precio-final {
     justify-content: center;
+}
+.comprarYVaciarCarro {
+    display: flex;
+    justify-content: space-around;
+    width: 100vw;
+}
+.comprarYVaciarCarro button{
+    width: 20vw;
+    height: 7vw;
+    border-radius: 5vw;
+    font-size: 2vw;
+}
+.botonComprarTodoCarrito button{
+    background-color:#4e144e ;
+    color: rgb(246, 237, 248);
+    cursor: pointer;
+    border: .2vw solid #ffffff;
+    transition: all .5s;
+}
+.botonComprarTodoCarrito button:hover{
+    background-color:#000000 ;
+    color: #28d96c;
+    border: .2vw solid #28d96c;
+    transform: scale(1.2,1.2);
+}
+.botonCancelarTodoCarrito button{
+    background-color:#a80e0e ;
+    color: rgb(246, 237, 248);
+    cursor: pointer!important;
+    border: .2vw solid #ffffff;
+    transition: all .5s;
+}
+.botonCancelarTodoCarrito button:hover{
+    background-color:#000000 ;
+    color: #f84848;
+    border: .2vw solid #f35959;
+    transform: scale(1.2,1.2);
+}
+
+.cancelacionDeCompra {
+    background-color: #ff0000!important;
+    position: absolute;
+    right: 2vw;
+    width: 8vw;
+    bottom: .9vw;
+    font-size: .9vw!important;
+}
+.confirmacionDeCompra {
+    background-color: #2fda8a!important;
+    left: 2vw;
+    width: 8vw;
+    bottom: .9vw;
+    font-size: .9vw!important;
 }

@@ -1,21 +1,18 @@
-function autoId () {
-    return parseInt(Math.random()*1000)
-}
-function autoStock () {
-    return parseInt(Math.random()*10)
-}
+
 agregarNuevosModelos = () => {
     const autosNuevos= `../js/nuevosautos.json`
     fetch(autosNuevos)
         .then((respuesta)=> respuesta.json())
         .then((datos)=> {
             for (nuevoAuto of datos) {
-                const {imagen:img, id, marca, modelo, informacion, precio, logo, stock} =nuevoAuto
-                mostrarModelos.push(new modelos(img,modelo,marca,informacion,id,precio,logo,stock))
+                const {imagen:img, id, marca, modelo, informacion, precio, logo, stock,cantidad} =nuevoAuto
+                mostrarModelos.push(new modelos(img,modelo,marca,informacion,id,precio,logo,stock,cantidad))
             }
         })
     .catch((error)=>console.log(`ocurrio un error`))
-    .finally(()=>mostrarEnDoom())
+    .finally(()=>{
+        eliminarStock()
+        mostrarEnDoom()})
 }
 function mostrarEnDoom () {   
     let productosMuestra=document.querySelector(".productos-autos")
@@ -58,6 +55,21 @@ function mostrarEnDoom () {
     }
  
  }
+
+const eliminarStock = ()=> {
+    let recuperarStock=JSON.parse(localStorage.getItem(`stock`))||false
+    let objetos=recuperarStock
+    debugger
+    if (objetos) {
+        for (let objeto of objetos) {
+            let identificador=objeto.id
+            let objetoAReemplazar=mostrarModelos.findIndex(id=>id.id===identificador)
+            let convertirAModelo= (new modelos(objeto.imagen,objeto.modelo,objeto.marca,objeto.informacion,objeto.id,objeto.precio,objeto.logo,objeto.stock))
+            mostrarModelos[objetoAReemplazar]=convertirAModelo
+        }  
+    }
+}
+
 const redireccionDePágina= (modelos) => {
     localStorage.setItem(`modelo`,
         JSON.stringify(modelos)
