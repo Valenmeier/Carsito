@@ -50,16 +50,30 @@ const mostrarEnInformacion= () => {
               confirmButtonColor: "#3085d6",
               cancelButtonColor: "#d33",
               confirmButtonText: "Si, comprar",
+              iconColor: '#ebafe3',
               customClass: {
+                popup: `contenedorCompra`,
                 confirmButton: "confirmacionDeCompra",
-                cancelButton: "cancelacionDeCompra"
+                cancelButton: "cancelacionDeCompra",
+                title:`tituloConfirmarcompra`,
+                htmlContainer: 'textoConfirmarcompra',
+                
               },
             }).then((result) => {
               if (result.isConfirmed) {
-                Swal.fire(
-                  "Finalizado!",
-                  "Disfrute su nuevo " + `${recuperarModelo.modelo}`,
-                  "success"
+                Swal.fire({
+                  title:"Finalizado!",
+                  text:"Disfrute su nuevo " + `${recuperarModelo.modelo}`,
+                  icon:"success",
+                  iconColor: '#ebafe3',
+                  customClass: {
+                    popup: `contenedorCompra`,
+                    title:`tituloConfirmarcompra`,
+                    htmlContainer: 'textoConfirmarcompra',
+                    confirmButton: "okCompraFinalizada"
+                    
+                  }
+                }
                 );
                 compararStock()
                 ;
@@ -147,6 +161,7 @@ let evitarRepetir=()=> {
 
 
 eventoCarrito=() => {
+  debugger
   const agregarAlCarrito=document.querySelector(`.informacion-añadir-carrito`)
   agregarAlCarrito.addEventListener(`click`, ()=> {
     if (recuperarModelo.stock>0) {
@@ -161,7 +176,8 @@ eventoCarrito=() => {
          
         } ,
         inputValidator: (value) => {
-          if ((parseInt(value)>`${recuperarModelo.stock}`) || (parseInt(value)<=0)) {
+          debugger
+          if ((parseInt(value)>`${recuperarModelo.stock}`) || (parseInt(value)<=0) || value===""){
             return 'COLOCA UNA CANTIDAD VALIDA'
           }else {
             
@@ -173,7 +189,17 @@ eventoCarrito=() => {
           }
         },
         inputPlaceholder:"Coloca la cantidad a llevar",
-        footer: 'Disponibles = ' + `${recuperarModelo.stock}`
+        footer: 'Disponibles = ' + `${recuperarModelo.stock}`,
+        iconColor: '#ebafe3',
+                  customClass: {
+                    popup: `contenedorCantidad`,
+                    title:`tituloConfirmarcompra`,
+                    htmlContainer: 'textoConfirmarcompra',
+                    confirmButton: "okCompraFinalizada",
+                    input: 'inputCantidad',
+                    footer: 'colorAbajo',
+                    validationMessage: 'colorDeValidacion'
+                  }
       })
     } else {
       Swal.fire({

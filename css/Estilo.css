@@ -987,9 +987,52 @@ text-align: center;
     font-size: .9vw!important;
 }
 .confirmacionDeCompra {
-    background-color: #2fda8a!important;
+    background-color: #50a37c!important;
+    position: absolute;
     left: 2vw;
     width: 8vw;
     bottom: .9vw;
     font-size: .9vw!important;
+}
+.contenedorCompra {
+    background-color: #3f0d49;
+    height: 40vh;
+    box-shadow:0 0 20px #ae00ff, 0 0 40px #001eff, 0 0 60px #ae00ff ;
+}
+.tituloConfirmarcompra {
+    color: rgb(240, 228, 228);
+    font-size: 2vw;
+    padding: 0;
+    margin: 0;
+}
+.textoConfirmarcompra {
+    color: #ebafe3;
+    padding: 0;
+    margin: 0;
+}
+.okCompraFinalizada {
+    background-color: #d84fc6!important;
+    width: 8vw;
+    font-size: .9vw!important;
+}
+.inputCantidad {
+    background-color: #ebafe3;
+    height: 4.5vh;
+    color:rgb(89, 27, 117);
+}
+.inputCantidad::placeholder {
+    color: rgb(144, 108, 161);
+}
+.contenedorCantidad {
+    background-color: #3f0d49;
+    
+    box-shadow:0 0 20px #ae00ff, 0 0 40px #001eff, 0 0 60px #ae00ff ;
+}
+.colorAbajo {
+    color: #ffffff;
+    font-size: 1vw;
+}
+.colorDeValidacion {
+    color: #fafafa;
+    background-color: #f00000;
 }
