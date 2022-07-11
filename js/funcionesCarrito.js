@@ -27,7 +27,6 @@ let mostrarEnCarrito = () => {
     precioFinal=0
     
     for(let mostrarModelo of agarrarModelos) {
-        debugger
         let {id,imagen:img,marca,modelo,precio,cantidad}= mostrarModelo
         let precioTotal=precio*cantidad
        mainCarrito.innerHTML+= `
@@ -106,7 +105,6 @@ finalizarCompra.addEventListener(`click`, ()=> {
         cancelButtonText: 'No, cancelar'
       }).then((result) => {
         if (result.isConfirmed) {
-            debugger
             let historialDeCompra=[]
             for(producto of agarrarModelos) {
                 let cantidadAEliminar=(producto.stock)-(producto.cantidad)

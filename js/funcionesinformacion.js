@@ -61,8 +61,8 @@ const mostrarEnInformacion= () => {
                   "Disfrute su nuevo " + `${recuperarModelo.modelo}`,
                   "success"
                 );
-                sacarStock()
-                eventoCarrito();
+                compararStock()
+                ;
 
               }
             });
@@ -87,8 +87,26 @@ mostrarEnInformacion()
 
 
 sacarStock = () => {
-    let eliminarStock=recuperarModelo.stock-(1||numero)
+  debugger
+    let eliminarStock=recuperarModelo.stock-1
     recuperarModelo.stock=eliminarStock
+    eliminarStockDeCarrito=()=> {
+      let carrito=JSON.parse(localStorage.getItem(`carrito`))|| []
+      let objetosEnCarrito=carrito.length
+      if(objetosEnCarrito>0){
+        for(let objetos of carrito) {
+          let identificador=parseInt(recuperarModelo.id)
+          let compararAutos=carrito.findIndex((id)=>parseInt(id.id)===identificador)
+          if (compararAutos>=0) {
+            let cambiarStock=carrito[compararAutos]
+            cambiarStock.stock=recuperarModelo.stock
+            carrito[compararAutos]=cambiarStock
+            localStorage.setItem(`carrito`,JSON.stringify(carrito))
+          }
+        }
+      }
+    }
+    eliminarStockDeCarrito()
     mostrarEnInformacion()
     nuevosStocks=JSON.parse(localStorage.getItem(`stock`))||[]
     nuevosStocks.push(recuperarModelo)
@@ -110,7 +128,6 @@ let evitarRepetir=()=> {
   } else {
   
       for (encontrarIndex of guardarEnCarrito) {
-        debugger
         let identificador=parseInt(recuperarModelo.id)
             let datoACambiar=guardarEnCarrito.findIndex((guardarEnCarrito)=>parseInt(guardarEnCarrito.id)===identificador)
             if(datoACambiar!=-1) {
@@ -144,7 +161,6 @@ eventoCarrito=() => {
          
         } ,
         inputValidator: (value) => {
-          debugger
           if ((parseInt(value)>`${recuperarModelo.stock}`) || (parseInt(value)<=0)) {
             return 'COLOCA UNA CANTIDAD VALIDA'
           }else {
@@ -190,6 +206,32 @@ eventoCarrito=() => {
         
   }
 }
+let compararStock = () => {
+  let carrito=JSON.parse(localStorage.getItem(`carrito`))|| []
+  let objetosEnCarrito= carrito.length
+  if (objetosEnCarrito===0) {
+    sacarStock();
+    eventoCarrito();
+  } else {
+    for(let descontar of carrito) {
+      let buscarAuto= parseInt(recuperarModelo.id)
+      let compararAuto= carrito.findIndex((id)=> parseInt(id.id)===buscarAuto)
+      if (compararAuto>=0) {
+        let revisarStock=carrito[compararAuto]
+        let compararCantidad= parseInt(revisarStock.stock)-parseInt(revisarStock.cantidad)
+        if (compararCantidad>=1) {
+          sacarStock();
+          eventoCarrito();
+        }else {
+          Swal.fire('Revisa el carrito antes de continuar')
+        }
+      }else {
+        sacarStock();
+        eventoCarrito();
+      }
+    }
+  }
+};
 eventoCarrito()
 
 

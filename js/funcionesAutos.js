@@ -59,7 +59,6 @@ function mostrarEnDoom () {
 const eliminarStock = ()=> {
     let recuperarStock=JSON.parse(localStorage.getItem(`stock`))||false
     let objetos=recuperarStock
-    debugger
     if (objetos) {
         for (let objeto of objetos) {
             let identificador=objeto.id
