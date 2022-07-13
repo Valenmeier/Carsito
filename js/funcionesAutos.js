@@ -48,9 +48,6 @@ function mostrarEnDoom () {
             agregarDiv.addEventListener(`click`,()=>{
             redireccionDePágina(modelos)
            })
-        //    agregarDiv.addEventListener(`click`,()=>{
-        //     agregarAlCarrito(modelos)
-        //    })
            productosMuestra.append(agregarDiv)
     }
  
